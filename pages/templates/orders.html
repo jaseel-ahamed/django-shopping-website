@@ -1,0 +1,64 @@
+
+{% extends 'master1.html' %}
+{% load static %}
+{% block content %} 
+
+<section>
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="inbox02" style="background-color:rgb(237, 237, 237);padding:20px;">
+                        <h6 style="margin: 0px 0px 15px 10px;font-weight:bold;font-family:Arial, Helvetica, sans-serif;">Order Summary</h6>
+
+                        <table class="table">
+                            {% for x in order %}
+
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <img src="{% static 'uploads/' %}{{x.prod_image}}" height="70px">
+                                            </div>    
+                                            <div class="col-sm-4" style="margin-top: 15px;">
+                                            {{x.prod_name}}
+                                            </div>             
+                                            <div class="col-sm-6" style="text-align: right;font-weight: bold;margin-top: 15px;">
+                                                ₹ {{x.prod_tot}}
+                                                <div style="font-weight: normal;color: gray; margin-right: 10px;">Qty:{{x.prod_qty}}</div>
+                                            </div>    
+                                        </div>     
+                                    </td>
+                                </tr>  
+                            {% endfor %}      
+                        </table> 
+                    
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 style="margin: 15px 0px 0px 0px;">Delivery Address</h6>
+
+                                    <span style="justify-content: left;">{{adrs}}</span>
+
+                                <h6 style="margin: 15px 0px 0px 0px;">Payment method</h6>
+
+                                    <span style="justify-content: left;">{{dtyp}}</span>
+                            </div>
+
+                            <div class="col-sm-6" style=" text-align: right;margin-top: 50px;">
+                                <div> Grand Total</div>
+                                <span style="font-weight: bold;">₹ {{ gtot }}</span>
+                            </div>
+                        </div>
+
+                        <form action="orderplaced" method="post">
+                            {% csrf_token %}
+                            <div style="text-align: right;">
+                                <button type="submit" class="btn btn-primary" name="order_status" style="margin-top: 20px;font-size: 14px;">CONFIRM ORDER</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

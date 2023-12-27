@@ -1,0 +1,515 @@
+.sec1{
+margin: 10px 0px;
+
+}
+.logo{
+    margin-left: 40px;
+}
+.toplink{
+    font-family:poppins;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+    margin: 0px 15px;
+    text-decoration: none;
+}
+.toplink:hover{
+    color: #a5a5a5;
+}
+
+.icon1{
+    font-size:15px;
+    color: black;
+    padding: 5px;
+}
+.icon02{
+    font-size:27px;
+    color: black;
+    padding: 5px;
+}
+.icon2{
+    font-size:30px;
+    color: black;
+    padding: 7px 10px;
+    border-radius: 50%;
+    background-color: rgb(108, 137, 162);
+    color: #fff;
+}
+.icon2:hover{
+    color: rgb(108, 137, 162);
+    background-color: #8bc0d3;
+}
+
+.sec2{
+    background-image:url(picture1.jpg);
+    background-repeat:no-repeat;
+    background-size:100% auto;
+    width:100%;
+    height: 600px;
+   
+}
+.inbox{
+    min-height: 300px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    /* margin: 60px 0px 90px 159px; */
+}
+.first{
+    font-family: 'Segoe Script','Savoye LET';
+    font-size: 2.5em;
+    color: #777777;
+    line-height: 1;
+    font-weight: 400;
+}
+.first1{
+    font-family: 'Segoe Script','Savoye LET';
+    font-size: 2.5em;
+    color: #f0efef;
+    line-height: 1;
+    font-weight: 400;
+}
+.second{
+    font-family:sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #222329;
+    letter-spacing:4px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.third{
+    font-family:sans-serif;
+    font-weight:700;
+    color: #222329;
+    font-size:80px;
+}
+.third1{
+    font-family:sans-serif;
+    font-weight:700;
+    color: #e7e7e7;
+    font-size:80px;
+}
+.fourth{
+    font-family: Poppins,sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+    color: #222329;
+    text-transform: uppercase;
+}
+.fourth1{
+    font-family: Poppins,sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+    color: #fdfdfd;
+    text-transform: uppercase;
+}
+.upto{
+    font-family: Felix titling;
+    font-size: 25px;
+    transform: rotate(-90deg);
+    display: inline-block;
+    padding-top: 15px;
+}
+.price{
+    background-color: #fff;
+
+}
+.pricehat{
+    background-color: #070707;
+    padding: 10px;
+}
+.shopnow{
+    background: #222329;
+    padding: 19px 50px;
+    margin-left: 30px;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #fff;
+    display: inline-block;
+    margin-top: 30px;
+}
+.shopnow:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.img{
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.img:hover{
+    transform: scale(1.1);
+    box-shadow: opx opx 10px black;
+}
+.Items{
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  
+}
+
+.numof{
+    text-align: center;
+    font-size: 15px;
+    margin-top: -7px;
+    color: #777777;
+}
+.sec3{
+    margin: 80px 30px;
+
+}
+.demo1{
+    position: relative;
+}
+.demo2{
+    position: relative;
+}
+.demo3{
+    position: relative;
+}
+.demo4{
+    position: relative;
+}
+.sub1{
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+}
+.head1{
+    font-weight: bold;
+}
+.head2{
+    font-size: medium;
+    color: #777777;
+}
+.shopglasses{
+    background: #222329;
+    padding: 10px 15px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #fff;
+    display: inline-block;
+}
+.shopglasses:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.sub2{
+    position: absolute;
+    top: 40px;
+    left: 30px;
+}
+.sub3{
+    position: absolute;
+    bottom: 130px;
+    left:30px;
+    text-align: center;
+}
+.head01{
+    color: #fff;
+}
+.shopglasses2{
+    background: #ffffff;
+    padding: 10px 15px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #222329;
+    display: inline-block;
+}
+.shopglasses2:hover{
+    text-decoration: none;
+    color: #222329;
+}
+.sub4{
+    position: absolute;
+    bottom: 30px;
+    padding: 20px 10px;
+    text-align: center;
+    border:4px solid #222329;
+}
+.shopglasses3{
+    background: #222339;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    position: absolute;
+    bottom:-19px;
+    left:60px;
+}
+.shopglasses3:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.sec4{
+    margin: 0px 30px;
+}
+.head3{
+    font-weight: bold;
+    font-size:18px;
+    text-align: center;
+}
+
+.products{
+    margin:40px -8px 0px 0px ;
+}
+
+.names{
+    font-size: 17px;
+    font-weight:10px;
+}
+.prices{
+    font-size: 19px;
+    font-weight: bold;
+}
+.sec5{
+    margin-top: 30px;
+    padding: 80px 0px;
+    background-color: rgb(251, 248, 253);
+}
+.head04{
+    font-weight: bold;
+    font-size:17px;
+    margin: 10px 0px;
+    text-align: center;
+
+}
+.head5{
+    color: #777777;
+    font-size: 15px;
+    font-weight: bold;
+}
+.align{
+    text-align: center;
+}
+.sec7{
+    margin: 20px 00px;
+    padding: 40px 0px;
+}
+.inbox2{
+   position: absolute;
+   right:1px;
+}
+.sec6{
+    margin: 50px 0px;
+}
+.head4{
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+.bottomlink{
+    display: block;
+    padding: 10px;
+}
+.icon00{
+   font-size: 18px;
+   margin: 6px;
+}
+.icon00:hover{
+    color:rgb(10, 169, 217);
+    background-color: #222339;
+    padding: 8px;
+    border-radius: 50%;
+}
+.sec8{
+    margin-top: 40px;
+    background-color:rgb(233, 234, 240);
+}
+.head6{
+    text-align: center;
+    margin: 20px 0px;
+}
+.form{
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    display: inline-block;
+}
+.fillform{
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0px;
+}
+.message{
+    display: inline-block;
+    margin: 30px 150px;
+    padding: 15px 20px;
+    font-family:sans-serif;
+    font-size: 20px;
+    background-color:#000000;
+    color: #ffffff;
+}
+.message:hover{
+    text-decoration: none;
+    color: #fff;
+    background-color: #51536c;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+}
+.btn3{
+    background-color: #000000;
+    color: #fff;
+    padding:15px 10px;
+    font-size: 15px;
+}
+.outer{
+    background-color: aqua;
+    position: relative;
+    
+}
+.inbox5{
+    background-color: antiquewhite;
+    position: absolute;
+}
+.pics{
+    float: left;
+}
+
+
+.head{
+    margin: 10px 0px 10px 0px;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+.price1{
+    margin: 10px 0px 10px 0px;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+.prohead{
+    margin: 0px 0px 25px 0px;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.proimg{
+    margin-bottom: 30px;
+    border:1px solid #c0c0c2;
+    padding: 7px;
+}
+.box1{
+    text-align: center;
+}
+.box2{
+    width: 40vw;
+    margin-left: 30%;
+    margin-bottom: 50px;
+   
+}
+
+.inbox0{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 60px;
+    padding: 15px 0px 15px 10px;
+    border-radius: 10px;
+}
+.heading1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    padding: 50px 0px 0px 0px;
+}
+.heading2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin: 10px;
+}
+.sec10{
+    background-color:rgb(122, 122, 122);
+    height: 580px;
+}
+.inbox3{
+    margin:70px 0px 70px 0px;
+    padding: 50px 0px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    
+}
+.cart{
+    font-size:12px;
+    text-decoration: none;
+    background-color: #222329;
+    color: #fff;
+    float: right;
+}
+.cart:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.modalpara{
+    padding: 20px;
+	background-color:white;
+	color:black
+}
+.modalheads{
+	text-align:center;
+}
+.myacnt{
+    margin: 20px 0px;
+}
+
+.inbox4{
+    padding: 5px 0px;
+    margin: 10px 0px;
+    background-color: #ffffff;
+}
+.boxes{
+    margin: 10px 10px;
+    padding: 10px 0px;
+}
+.boxes:hover{
+    background-color: rgb(153, 178, 201);
+}
+.box01{
+    background-color: rgb(153, 178, 201);
+    margin: 10px 10px;
+    padding: 10px 0px;
+}
+.icon4{
+    font-size: 18px;
+}
+
+.proname{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    margin-top: 50px;
+}
+.cathead{
+    background-color:rgb(123, 174, 192);
+    text-align: center;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 0px;
+}
+.cats{
+    background-color:rgb(225, 241, 247);
+    padding: 10px 10px 10px 10px ;
+}
+.shoppingbag{
+    margin-top: 40px;
+    font-family:sans-serif;
+}
+.inbox6{
+    background-color: rgb(244, 244, 244);
+    padding: 25px;
+}
+.delchrg{
+    text-decoration: line-through;
+}
+.free{
+    color: rgb(65, 161, 65);
+    padding-left: 5px;
+}
+.searchinput{
+    background-image: url(Search.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right center;
+}

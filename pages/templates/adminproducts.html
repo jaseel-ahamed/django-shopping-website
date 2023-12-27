@@ -1,0 +1,94 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+
+<section class="sec9">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-sm-3">
+                <div class="inbox4">
+                    <div class="row boxes">
+                        <div class="col-sm-2">
+                            <i class="bi-cart3 icon4"></i>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="/adminproducts"> <h6 class="details">All Products</h6></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="row boxes">
+                        <div class="col-sm-2">
+                            <i class="bi-cart3 icon4"></i>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="/addproduct"> <h6 class="details">Add Product</h6></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="row boxes">
+                        <div class="col-sm-2">
+                            <i class="bi-box-arrow-right icon4"></i>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="/adminlogout"> <h6 class="details">Logout</h6></a>
+                        </div>
+                        <div class="col-sm-4">
+                            <i class="bi-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="inbox4">
+                   <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for x in products %}
+                            <tr>
+                                <td><img src="{% static 'uploads/' %}{{x.product_image}}" height="100px"></td>
+                                <td>{{ x.product_name }}</td>
+                                <td>{{ x.product_price }}</td>
+                                <td>
+                                    {% for y in cats %}
+                                        {% if x.product_cat == y.id %}
+                                            {{ y.cat_name }}
+                                        {% endif %}
+                                    {% endfor %}
+                                
+                                </td>
+                                <td><a href="/admineditprod/{{x.id}}">
+                                    <input type="button" class="btn btn-info btn-sm" value="Edit"></a>
+                                          
+                                <a href="/admindelprod/{{x.id}}">
+                                    <input type="button" class="btn btn-danger btn-sm remove-cart" value="Delete"></a>
+                                </td>           
+                            </tr>
+
+                            {% endfor %}
+
+
+                        </tbody> 
+                   </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

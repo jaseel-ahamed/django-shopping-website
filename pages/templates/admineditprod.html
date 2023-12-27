@@ -1,0 +1,48 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+
+    <section class="sec10">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box2">
+                        <div class="inbox0">
+                            <h1 class="heading2">Edit Product Details</h1> <br>
+                            <div style="margin-bottom: 20px;"><img src="{% static 'uploads/' %}{{product.product_image}}" style="width: 100px;height: 100px;" alt=""></div>
+                            <form action="" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="hidden" name="id" value="{{product.id}}">
+                                <label for="">Edit product name :</label>
+                                <input type="text" name="product_name" value="{{product.product_name}}">
+                                <br><br>
+                                <label for="">Edit product price :</label>
+                                <input type="number" name="product_price" value="{{product.product_price}}">
+                                <br><br>
+                                <label for="">Edit product image :</label>
+                                <input type="file" name="product_image" value="{{product.product_image}}">
+                                <br><br>
+                                <label for="">Edit product category :</label>
+                                
+                                <select name="product_cat" id="">
+
+                                    {% for x in cat %}
+                                        {% if x.id == product.product_cat %}
+                                            <option value="{{x.id}}" selected>{{x.cat_name}}</option>
+                                        {% else %}
+                                            <option value="{{x.id}}">{{x.cat_name}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <br><br>
+                                <button type="submit" class="btn btn-dark loginbtn">Upload</button>
+                                <br><br>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+
+<section>
+    <div class="container" >
+        <div class="row">
+           
+                <div class="inbox02" style="background-color:rgb(244, 244, 244);padding:20px;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            {% for x in search %}
+                            <div class="col-sm-2">
+                                <div class="proimg">
+                                    <img src="{% static 'uploads/' %}{{x.product_image}}" alt="" width="100%">
+                                    <h6 class="head">{{ x.product_name }}</h6>
+                                    <span>
+                                        <p class="price1">₹{{ x.product_price }}</p>
+                                    </span>    
+                                        
+                                       <div class="row">
+                                           <div class="col-sm-3">
+                                               <a href="/addtowish/{{x.id}}"><i class="bi-heart" style=" cursor: pointer; color: rgb(231, 19, 19);  "></i></a>
+                                           </div>
+                                           <div class="col-sm-9">
+                                               <a href="/addtocart/{{x.id}}" class="cart" style="padding: 3px;font-size: 10px;">Add to cart</a>
+                                           </div>
+                                       </div>
+       
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                      
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

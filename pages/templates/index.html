@@ -1,0 +1,376 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+ 
+
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        </div>
+        
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+        <div class="carousel-item active" style="height:680px;position: relative;">
+            <img src="{% static 'picture1.jpg' %}" class="d-block" style="width:100%;">
+            <div class="carousel-caption inbox" style="text-align: left;position:absolute;top:0px">
+                <h1 class="first">Winter Fashion Trends</h1>
+                <h2 class="second">Get upto 30% OFF</h2>
+                <h3 class="third">on Jackets</h3>
+                <h2 class="fourth">Starting at<span class="price"><sup>$</sup>199<sup>99</sup></span></h2>
+                <a href="" class="shopnow">SHOP NOW</a>
+            </div>
+        </div> 
+        <div class="carousel-item" style="height:680px;position: relative;" >
+            <div class="carousel-caption" style="text-align: left;position:absolute;top:0px">
+                <h1 class="first1">New Season Hats</h1>
+                <h3 class="third1"><span class="upto">UP TO </span>30% OFF</h3>
+                <h2 class="fourth1">Starting at<span class="pricehat"><sup>$</sup>199<sup>99</sup></span></h2>
+                <a href="" class="shopnow">SHOP NOW</a>
+            </div>
+            <img src="{% static 'picture02.jpg' %}" class="d-block" style="width:100%;">
+        </div>
+    
+        
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+<section>
+        <section class="regular slider" >   
+            {% for c in category %}     
+                <div>
+                    <a href="/products/{{c.id}}"><img src="/media/{{ c.cat_image }}">
+                        <h3 class="Items">{{c.cat_name}}</h3>
+                        <h3 class="numof">{{c.cat_pro_count}} products</h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </section>
+</section>
+
+    <section class="sec3">
+        <div data-aos="fade-down" data-aos-duration="1000">
+        <div class="container-fluid">
+            <div class="inbox1">
+            <div class="row">
+                    <div class="col-sm-3">
+                        <div class="demo1">
+                            <img src="https://i.imgur.com/Lbjvih0.jpg" alt="" width="100%">
+                            <div class="sub1">
+                            <h3 class="head1">Sunglasses Sale</h3> 
+                            <h3 class="head2">See all and find yours</h3> 
+                            <a href="/products/4" class="shopglasses">SHOP BY GLASSES</a>
+                            </div> 
+                        </div>   
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="demo2">
+                            <img src="https://i.imgur.com/IAX3XZe.jpg" alt="" width="100%">
+                            <div class="sub1">
+                                <h3 class="head01">Kids Fashion</h3> 
+                                <h3 class="head2">Browse in all our Categories</h3> 
+                                <a href="/products/10" class="shopglasses">SHOP BY FASHION</a>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="demo3">
+                            <img src="https://i.imgur.com/XBEBCag.jpg" alt="" width="100%">
+                            <div class="sub3">
+                                <h3 class="head01">Fashion Summer Sale</h3> 
+                                <h3 class="head2">Browse in all our Categories</h3> 
+                                <a href="/products/5" class="shopglasses2">SHOP BY FASHION</a>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="demo4">
+                            <img src="https://i.imgur.com/ARihVIF.jpg" alt="" width="100%">
+                            <div class="sub4">
+                                <h3 class="head1">UPTO 70% IN ALL BAGS</h3> 
+                                <h3 class="head2">Starting at $99</h3> 
+                                <a href="/products/7" class="shopglasses3">SHOP BY BAGS</a>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+   
+<section id="prod">
+    <h2 class="prohead">Products</h2>
+    <div class="container">
+        <div class="row">
+            {% for x in products %}
+                <div class="col-sm-3">
+                    <div class="proimg" data-toggle="modal" data-target="#myModal{{x.id}}" style="border-radius: 7px;padding:10px">
+                            <img src="{% static 'uploads/' %}{{x.product_image}}" alt="" width="100%">
+                            <h6 class="head">{{ x.product_name }}</h6>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h6 class="price">₹{{ x.product_price }}</h6>
+                            </div>                         
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <a href="/addtowish/{{x.id}}"><i class="bi-heart" style=" cursor: pointer; color: rgb(231, 19, 19);  "></i></a>
+                                    
+                                </i></a>
+                            </div>
+                            <div class="col-sm-9">
+                                <a href="/addtocart/{{x.id}}" class="cart" style="padding: 3px;">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="myModal{{x.id}}" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="row modalpara">
+                    
+                            <div class="col-md-5">
+                                <img src="{% static 'uploads/' %}{{x.product_image}}" class="img1" width="100%">
+                            </div>
+                        
+                            <div class="col-md-7">
+                                <p>{{ x.product_desc }}</p>
+                                <h3 class="names">{{ x.product_name }}</h3>
+                                <h3 class="prices">₹{{ x.product_price }}</h3>
+                        
+                                <a href="/addtocart/{{x.id}}" class="cart" style="float: right;">Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+            </div>
+             
+            
+            
+            {% if 'sm' not in request.GET %}
+            <a href="/?sm=1#prod">show more</a>
+            {% endif %}
+
+            {% if 'sm' in request.GET %}
+            <a href="/#prod">show less</a>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+
+
+<section class="sec5">
+    <div class="container">
+
+                <div class="row">
+                <div class="col-sm-3">
+                    <div class="teammates">
+                        <div class="align">
+                        <i class="bi-person icon2"></i>
+                        <h3 class="head04">CUSTOMER SUPPORT</h3>
+                        <h3 class="head5">Need Assistence?</h3>
+                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                        </div>
+                   </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="teammates">
+                        <div class="align">
+                        <i class="bi-credit-card icon2"></i>
+                        <h3 class="head04">SECURED PAYMENT</h3>
+                        <h3 class="head5">Safe & Fast</h3>
+                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                        </div>
+                   </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="teammates">
+                        <div class="align">
+                        <i class="bi-reply icon2"></i>
+                        <h3 class="head04">FREE RETURNS</h3>
+                        <h3 class="head5">Easy & Free</h3>
+                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                        </div>
+                   </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="teammates">
+                        <div class="align">
+                        <i class="bi-truck icon2"></i>
+                        <h3 class="head04">FREE SHIPPING</h3>
+                        <h3 class="head5">Orders Over $99</h3>
+                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+                        </div>
+                   </div>
+                </div>
+                
+            </div>    
+        </div>
+    </div>
+</section>
+
+    <section class="sec8">
+        <div class="row">
+            <div class="col-sm-7">
+                <h2 class="prohead">Location</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62708.83176725985!2d76.65390729999999!3d10.788167099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba86dfa087d31ad%3A0xf542d6eb7a870a56!2sPalakkad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1681658055597!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            </div>    
+            <div class="col-sm-5">
+                <h2 class="prohead">Contact</h2>
+                <div class="form">
+                    <form class="" action="/" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="contact_name" placeholder="Your Name" class="form-control"><br>
+                        <input type="email" name="contact_email" placeholder="Your Email" class="form-control"><br>
+                        <input type="text" name="subject" placeholder="Subject" class="form-control"><br>
+                        <textarea name="contact_message" placeholder="Message" class="form-control"></textarea><br>
+                        <button type="submit" class="btn3">Send Message</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+
+    <section class="sec6">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class="head4">Contact Info</h2>
+                    <div class="inbox1">
+                    <h5>ADDRESS: </h5>
+                        <p>123 Street Name, City, England<br>
+
+                     <h5>Email: </h5>
+                        <p>mail123@gmail.com<br>
+
+                    <h5>Phone: </h5>
+                        <p>(123) 456-7890<br>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h2 class="head4">My Account</h2>
+                        <div class="inbox1">
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>About Us</a> 
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Contact Us</a>
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>My Account</a>
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Orders History</a> 
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Advanced Search</a> 
+                        </div>
+                 </div>       
+                <div class="col-sm-3">
+                    <h2 class="head4">Our Services</h2>
+                        <div class="inbox1">
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Clothing Brand</a>  
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>New collections</a> 
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Product Management</a> 
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Marketing</a>
+                        <a href="" class="bottomlink"><i class="bi-chevron-right icon3"></i>Orders</a> 
+                        </div>   
+                </div>
+                <div class="col-sm-3">
+                    <h2 class="head4">Our Social Networks</h2>
+                    <p class="para7">Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <i class="bi-twitter icon00"></i>
+                    <i class="bi-facebook icon00"></i>
+                    <i class="bi-instagram icon00"></i>
+                    <i class="bi-skype icon00"></i>
+                    <i class="bi-linkedin icon00"></i>
+                </div>
+            </div>
+         </div>
+    </section>
+
+
+  
+    <style type="text/css">
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+    
+        * {
+          box-sizing: border-box;
+        }
+    
+        .slider {
+            width: 80%;
+            margin: 100px auto;
+        }
+    
+        .slick-slide {
+          margin: 0px 20px;
+        }
+    
+        .slick-slide img {
+          width: 100%;
+        }
+    
+        .slick-prev:before,
+        .slick-next:before {
+          color: black;
+        }
+    
+    
+        .slick-slide {
+          transition: all ease-in-out .3s;
+          
+        }
+        
+        .slick-active {
+          /* opacity: .7; */
+        }
+    
+        .slick-current {
+          /* opacity: 1; */
+        }
+      </style>
+ 
+ <!-- aos animation -->
+
+ <script src="https://code.jquery.com/jquery-3.7.0.min.js" ></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+ <script>
+     AOS.init();
+   </script>
+
+
+<!--   slick slider -->
+
+ <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" type="text/javascript" charset="utf-8"></script>
+ <script type="text/javascript">
+   $(document).on('ready', function() {
+     $(".regular").slick({
+       dots: true,
+       infinite: true,
+       slidesToShow: 5,
+       slidesToScroll: 1
+     });
+   });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $(".bi-heart").click(function(){
+            $(this).toggleClass('bi-heart');
+            $(this).toggleClass('bi-heart-fill');
+        });
+    });
+
+</script>
+{% endblock %}

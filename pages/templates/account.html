@@ -1,0 +1,63 @@
+{% extends 'master1.html' %}
+{% load static %}
+{% block content %}
+
+     
+            <div class="col-sm-12">
+                <div class="inbox00" style="padding:20px;background-color: rgb(247, 243, 241);padding:40px 0px ">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="propic" style="text-align: right;">
+                            {% for x in profile %}
+                            <img src="{% static 'uploads/' %}{{x.register_propic}}" style="height: 150px; width:150px;border-radius: 50%;" alt="">
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            {% for x in profile %}
+                                <h3 class="proname">{{x.register_name}}</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% for x in profile %}
+                        <div class="col-sm-6">
+                            <form>
+                                {% csrf_token %}
+                                <div class="mb-3 mt-3">
+                                <label for="Name" class="form-label">Name:</label>
+                                <input type="name" class="form-control" value="{{x.register_name}}">
+                                </div>
+
+                                <div class="mb-3 mt-3">
+                                    <label for="user" class="form-label">Username:</label>
+                                    <input type="user" class="form-control" value="{{x.register_user}}">
+                                </div>
+                                <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" class="form-control" value="{{x.password}}">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <form>
+                                {% csrf_token %}
+                                <div class="mb-3 mt-3">
+                                    <label for="email" class="form-label">Email Address:</label>
+                                    <input type="email" class="form-control" value="{{x.register_email}}">
+                                </div>
+                                <div class="mb-3 mt-3">
+                                    <label for="Phone" class="form-label">Phone:</label>
+                                    <input type="phone" class="form-control" value="{{x.register_number}}">
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+                {% endfor %}
+            </div>
+
+ 
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+
+    <section class="sec9" style="margin-top: 45px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h1 class="heading2">Checkout</h1> <br>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="row"> 
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Enter Delivery address :</label>
+                                        <textarea name="deliv_address" class="form-control" style="width:100%"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Enter Delivery type :</label>
+                                        <select name="deliv_type" class="form-control">
+                                            <option value="cod">Cash On Delivery</option>
+                                            <option value="online" >Online Payment</option>
+                                        </select>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div> 
+                        </div>  
+                    </form> 
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="card shadow">
+                        <h6 style="margin:20px 0px 20px 15px;">Order Summary </h6>
+                    
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                
+                            {% for x in order %}
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <img src="{% static 'uploads/' %}{{x.prod_image}}" height="70px">
+                                            </div>    
+                                            <div class="col-sm-8">
+                                            {{x.prod_name}}
+                                            </div>    
+                                        </div>
+                                    </td>
+                                    <td>{{x.prod_qty}}</td>
+                                    <td>₹{{x.prod_price}}</td>
+                                    <td>₹{{x.prod_tot}}</td>
+                                    <td><a href="/delorder/{{x.id}}"><div style="text-align: center;"><i class="bi-trash3-fill"></i></div></a></td>
+                                </tr>
+                            {% endfor %}
+                                
+                        </table>
+                        <div class="row" style=" margin:5px;">
+                            <div class="col-sm-6">
+                                <h6> Grand Total</h6>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="float-end" style="font-weight: bold;">₹{{ gtot }}</span>
+                            </div>
+                        </div>
+                        <a href="/orders" class="btn btn-success" style="margin: 10px;"> Place Order</a>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

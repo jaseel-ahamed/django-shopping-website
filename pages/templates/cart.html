@@ -1,0 +1,112 @@
+{% extends 'master1.html' %}
+{% load static %}
+{% block content %} 
+
+
+<section>
+    <div class="container">
+        <h3 style="text-align: center;margin: 10px 0px 30px 0px; font-family: cambria;">MY CART</h3>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="inbox01">
+
+                    {% for x in cart %}
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="inbox7">
+                                <img src="{% static 'uploads/' %}{{x.cart_image}}" height="120px">
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                           <h6>{{x.cart_name}}</h6>
+                           <p class="mb-2 text-muted small">{{x.cart_desc}}</p> 
+                           <form action="/cart"  method="post" id="incform" class="float-left d-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="qty" value="{{x.cart_quantity}}">
+                            <input type="hidden" name="cid" value="{{x.id}}">
+                            <input type="hidden" name="chg" value="dec">
+                            <button type="submit">-</button>
+                        </form> 
+    
+                        <input type="text" id="qty" value="{{x.cart_quantity}}" class="float-left d-inline" style="width:50px">
+
+                        <form action="/cart"  method="post" id="incform" class="float-left d-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="qty" value="{{x.cart_quantity}}">
+                            <input type="hidden" name="cid" value="{{x.id}}">
+                            <input type="hidden" name="chg" value="inc">
+                            <button type="submit">+</button>
+                        </form> 
+                           <div style="font-weight: bold;font-size: 15px;margin: 10px 0px;">Price : ₹ {{ x.total_price }}</div>
+                            </div>
+                        <div class="col-sm-2">
+                            <a href="/delcart/{{x.id}}"><div style="text-align: right;"><i class="bi-trash3-fill"></i></div></a>
+                        </div>     
+                    </div>
+                        <hr>
+                     {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="inbox6">
+
+                    <h5>Summary</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Subtotal</p>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            ₹ {{ gtot }}
+                        </div>
+                    </div>    
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Order total</p>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            ₹ {{ gtot }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Delivery Charge</p>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <span class="delchrg">₹ 149</span><span class="free">Free</span>
+                        </div>
+                    </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6>Total</h6>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                ₹ {{ gtot }}
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+                            <form action="/checkout" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-info text-white" style="margin-top: 20px; font-family:Arial Unicode MS; font-size: 15px;background-color: rgb(22, 99, 199);">Proceed to Checkout</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

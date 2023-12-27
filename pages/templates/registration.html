@@ -1,0 +1,74 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+
+    <section class="sec10">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box2">
+                        <div class="inbox0">
+                            <h1 class="heading2">Registration Form</h1> <br>
+
+                            {% if msg != '' %}
+                                <span>{{msg}}</span>
+                            {% endif %}
+
+                            <table>
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <tr>
+                                        <td><label for="">Enter Your Name :</label></td>
+                                        <td><input type="text" name="register_name" id="" placeholder="Your Name"></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Enter Your Email :</label></td>
+                                        <td><input type="email" name="register_email" id=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Enter Phone number :</label></td>
+                                        <td><input type="number" name="register_number"></td>
+                                   </tr>
+                                    <tr>
+                                        <td><label for="">Choose Profile picture :</label></td>
+                                        <td><input type="file" name="register_propic" id=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Enter Username :</label></td>
+                                        <td><input type="text" name="register_user" id=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Enter Your Password :</label></td>
+                                        <td><input type="password" name="password" id="eye"></td>
+                                        <td><i class="bi-eye-slash-fill" id="fill" onclick="password();" style="font-size: 20px;"></i></td>
+                                    </tr>
+   
+                                </form>
+                            </table>
+                            <button type="submit" class="btn btn-dark loginbtn">Register</button>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<script>
+    function password(){
+        var a=document.getElementById("eye");
+        var b=document.getElementById("fill");
+
+        if(a.type==="password"){
+            a.type="text";
+            b.className="bi-eye-fill";
+        }
+        else{
+            a.type="password";
+            b.className="bi-eye-slash-fill";
+        }
+    }
+</script>
+{% endblock %}
+

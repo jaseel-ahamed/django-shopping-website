@@ -1,0 +1,52 @@
+{% extends 'master1.html' %}
+{% load static %}
+{% block content %} 
+
+<div class="container ">
+    <div class="row">
+        <div class="col-sm-12" style="margin: 20px 0px 30px 0px;">
+           <h3 style="text-align: center;">MY WISHLIST</h3>
+        </div>
+       
+    </div>
+</div>  
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="inbox01">
+
+                    {% for x in wish %}
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="inbox7">
+                                <img src="{% static 'uploads/' %}{{x.prod_image}}" height="80px">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                           <h6>{{x.prod_name}}</h6>
+                           <p class="mb-2 text-muted small">{{x.prod_desc}}</p> 
+                           <p class="mb-2 text-muted small">{{x.prod_cat}}</p> 
+                           <div style="font-weight: bold;font-size: 15px;margin: 10px 0px;">Price : {{ x.prod_price }}</div> 
+                        </div>    
+
+                        <div class="col-sm-2">
+                            <a href="/delwish/{{x.id}}"><div style="text-align: right;"><i class="bi-trash3-fill"></i></div></a>
+                        </div>
+
+                    </div>
+                        <hr>
+                     {% endfor %}
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

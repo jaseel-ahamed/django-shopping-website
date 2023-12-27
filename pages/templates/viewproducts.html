@@ -1,0 +1,70 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li
+            {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+<section>
+    <h2 class="prohead">Products</h2> <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="cats">
+                        <h2 class="cathead">Categories</h2> <br>
+                        <a href="/products/0">All Products</a>
+                        {% for x in cats %}
+                            <li><a href="/products/{{x.id}}" style="text-decoration: none;">{{ x.cat_name }}</a></li>
+                        {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-sm-10">
+                <div class="row">
+                    {% for x in products %}
+                    <div class="col-sm-2">
+                        <div class="proimg">
+                            <img src="{% static 'uploads/' %}{{x.product_image}}" alt="" width="100%">
+                            <h6 class="head">{{ x.product_name }}</h6>
+                            <span>
+                                <p class="price1">₹{{ x.product_price }}</p>
+                            </span>    
+                                
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <a href="/addtowish/{{x.id}}"><i class="bi-heart" style=" cursor: pointer; color: rgb(231, 19, 19);  "></i></a>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <a href="/addtocart/{{x.id}}" class="cart" style="padding: 3px;font-size: 10px;">Add to cart</a>
+                                        </div>
+                                    </div>
+                                
+                                    
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function(){
+        $(".bi-heart").click(function(){
+            $(this).toggleClass('bi-heart');
+            $(this).toggleClass('bi-heart-fill');
+        });
+    });
+
+</script>
+
+{% endblock %}
+

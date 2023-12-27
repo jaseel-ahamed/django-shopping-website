@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %} 
+<section class="sec10">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box2">
+                    <div class="inbox0">
+                        <h3> Customer Login</h3>
+                        <p>If you have an account, sign in with your username and password.</p> <br>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <label for="">Username :</label>
+                                <input type="text" name="user">
+                                <br><br>
+                                <label for="">Password :</label>
+                                <input type="password" name="pass">
+                                <br><br>
+                                <p><input type="checkbox" name="register"> If not registered, <a href="/registration">Register now !</a></p>
+                               <button type="submit" class="btn btn-dark loginbtn">Login</button>
+                            </form> 
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
